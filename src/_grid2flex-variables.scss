@@ -1,4 +1,6 @@
 // variables
+
+// default configuration
 $configuration: (
 	columns-count:                               12,
 	row:                                         row,
@@ -9,12 +11,14 @@ $configuration: (
 	column-vertical-alignment-enabled:           true
 ) !default;
 
+// default gutters
 $gutters: (
 	gutter-none:                                 0,
 	gutter-default:                              20px,
 	gutter-large:                                40px
 ) !default;
 
+// default breakpoints
 $breakpoints: (
 	xs:                                          0,
 	sm:                                          480px,

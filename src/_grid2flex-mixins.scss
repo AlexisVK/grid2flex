@@ -23,11 +23,11 @@
 	}
 }
 
-@mixin create-grid($breakpoints: $breakpoints, $gutters: $gutters, $configuration: $configuration) {
+@mixin create-grid($configuration: $configuration, $breakpoints: $breakpoints, $gutters: $gutters) {
+	$columns-count: map-get($configuration, columns-count);
 	$row: #{map-get($configuration, row)};
 	$column: #{map-get($configuration, column)};
 	$offsets-enabled: map-get($configuration, offsets-enabled);
-	$columns-count: map-get($configuration, columns-count);
 
 	// @extends
 	%row {
