@@ -1,0 +1,39 @@
+// example styles
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+body {
+  overflow-x: hidden;
+  font: 1em Arial, Helvetica, sans-serif;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.inner {
+	padding: 10px;
+}
+
+.box {
+	&--dark {
+		background: #ddd;
+	}
+
+	&--bordered {
+		border: 1px solid #666;
+	}
+}
+
+.full-width {
+  width: 100%;
+}

@@ -1,0 +1,7 @@
+// import files
+@import "grid2flex-variables";
+@import "grid2flex-mixins";
+
+// create grid
+@include create-grid();
+@include create-grid-helpers();

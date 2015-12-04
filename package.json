@@ -1,0 +1,28 @@
+{
+  "name": "grid2flex",
+  "version": "1.0.0",
+  "description": "Configurable flexbox grid system",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexisVK/grid2flex.git"
+  },
+  "keywords": [
+    "flex",
+    "grid",
+    "sass",
+    "scss"
+  ],
+  "author": "AlexisVK",
+  "bugs": {
+    "url": "https://github.com/AlexisVK/grid2flex/issues"
+  },
+  "homepage": "https://github.com/AlexisVK/grid2flex#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.1.0"
+  }
+}
