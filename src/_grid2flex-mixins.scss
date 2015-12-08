@@ -1,168 +1,199 @@
 // mixins
 @mixin bp-from($bp-name) {
-	$bp-value: map-get($breakpoints, $bp-name);
+  $bp-value: map-get($breakpoints, $bp-name);
 
-	@if ($bp-value > 0) {
-		@media (min-width: $bp-value) {
-			@content;
-		}
-	} @else {
-		@content;
-	}
+  @if ($bp-value > 0) {
+    @media (min-width: $bp-value) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin check-breakpoint($element, $breakpoints: $breakpoints, $configuration: $configuration) {
+  $breakpoints-enabled: map-get($configuration, breakpoints-enabled);
+
+  @if $breakpoints-enabled {
+    @each $bp-value, $breakpoint in $breakpoints {
+      @include bp-from($bp-value) {
+        .#{$element}-#{$bp-value} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    .#{$element} {
+      @content;
+    }
+  }
 }
 
 @mixin create-gutter($gutter, $configuration: $configuration) {
-	$column: #{map-get($configuration, column)};
+  $column: #{map-get($configuration, column)};
 
-	margin-left: ($gutter / -2);
-	margin-right: ($gutter / -2);
+  margin-left: ($gutter / -2);
+  margin-right: ($gutter / -2);
 
-	[class*="#{$column}-"] {
-		padding-left: ($gutter / 2);
-		padding-right: ($gutter / 2);
-	}
+  [class*="#{$column}-"] {
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+  }
 }
 
 @mixin create-grid($configuration: $configuration, $breakpoints: $breakpoints, $gutters: $gutters) {
-	$columns-count: map-get($configuration, columns-count);
-	$row: #{map-get($configuration, row)};
-	$column: #{map-get($configuration, column)};
-	$offsets-enabled: map-get($configuration, offsets-enabled);
+  $columns-count: map-get($configuration, columns-count);
+  $row: #{map-get($configuration, row)};
+  $column: #{map-get($configuration, column)};
+  $offsets-enabled: map-get($configuration, offsets-enabled);
+  $breakpoints-enabled: map-get($configuration, breakpoints-enabled);
 
-	// @extends
-	%row {
-		display: flex;
-		flex-flow: row wrap;
-	}
+  %row {
+    display: flex;
+    flex-flow: row wrap;
+  }
 
-	%column {
-		display: flex;
-		position: relative;
-		min-height: 1px;
-		background-clip: content-box !important;
-	}
+  // rows and gutters
+  @each $gutter-value, $gutter in $gutters {
+    @if ($gutter != 0) {
+      @if ($gutter-value != "gutter-default") {
+        .#{$row}-#{$gutter-value} {
+          @extend %row;
+          @include create-gutter($gutter);
+        }
+      } @else {
+        .#{$row} {
+          @extend %row;
+          @include create-gutter($gutter);
+        }
+      }
+    } @else {
+      .#{$row}-#{$gutter-value} {
+        @extend %row;
+      }
+    }
+  }
 
-	// rows and gutters
-	@each $gutter-value, $gutter in $gutters {
-		@if ($gutter != 0) {
-			@if ($gutter-value != "gutter-default") {
-				.#{$row}-#{$gutter-value} {
-					@extend %row;
-					@include create-gutter($gutter);
-				}
-			} @else {
-				.#{$row} {
-					@extend %row;
-					@include create-gutter($gutter);
-				}
-			}
-		} @else {
-			.#{$row}-#{$gutter-value} {
-				@extend %row;
-			}
-		}
-	}
+  // columns
+  [class*="#{$column}-"] {
+    position: relative;
+    min-height: 1px;
+    background-clip: content-box !important;
+  }
 
-	// columns
-	[class*="#{$column}-"] {
-		@extend %column;
-	}
+  // width calculation mixin
+  @mixin width-calculation($element) {
+    @for $i from 0 through $columns-count {
+      @if ($i > 0) {
+        &-#{$i} {
+          flex: 0 0 percentage($i / $columns-count);
+        }
+      } @else {
+        // column width calculated automatically
+        & {
+          flex: 1 1 0;
+        }
+      }
+    }
+  }
 
-	@each $bp-value, $breakpoint in $breakpoints {
-		@include bp-from($bp-value) {
-			@for $i from 1 through $columns-count {
-				.#{$column}-#{$bp-value}-#{$i} {
-					width: percentage($i / $columns-count);
-				}
-			}
+  // offset calculation mixin
+  @mixin offset-calculation($element) {
+    @for $i from 1 through $columns-count {
+      &-offset-#{$i - 1} {
+        margin-left: percentage(($i - 1)/$columns-count);
+      }
+    }
+  }
 
-			// create offsets for columns if enavle
-			@if $offsets-enabled {
-				@for $i from 1 through $columns-count {
-					.#{$column}-#{$bp-value}-offset-#{$i - 1} {
-						margin-left: percentage(($i - 1)/$columns-count);
-					}
-				}
-			}
-		}
-	}
+  @include check-breakpoint($column) {
+    @include width-calculation($column);
+    @include offset-calculation($column);
+  }
 }
 
 // helpers
 @mixin create-grid-helpers($configuration: $configuration, $breakpoints: $breakpoints) {
-	$row: #{map-get($configuration, row)};
-	$column: #{map-get($configuration, column)};
-	$row-vertical-alignment-enabled: map-get($configuration, row-vertical-alignment-enabled);
-	$row-horizontal-alignment-enabled: map-get($configuration, row-horizontal-alignment-enabled);
-	$column-vertical-alignment-enabled: map-get($configuration, column-vertical-alignment-enabled);
+  $row: #{map-get($configuration, row)};
+  $column: #{map-get($configuration, column)};
+  $row-vertical-alignment-enabled: map-get($configuration, row-vertical-alignment-enabled);
+  $row-horizontal-alignment-enabled: map-get($configuration, row-horizontal-alignment-enabled);
+  $column-vertical-alignment-enabled: map-get($configuration, column-vertical-alignment-enabled);
+  $breakpoints-enabled: map-get($configuration, breakpoints-enabled);
 
-	.#{$row} {
-		@each $bp-value, $breakpoint in $breakpoints {
-			@include bp-from($bp-value) {
-				// row vertical alignment helper
-				@if $row-vertical-alignment-enabled {
-					&-#{$bp-value}-top {
-						align-items: flex-start;
-					}
+  @mixin row-vertical-alignment($element) {
+    @include check-breakpoint($element) {
+      &--top {
+        align-items: flex-start;
+      }
 
-					&-#{$bp-value}-middle {
-						align-items: flex-center;
-					}
+      &--middle {
+        align-items: center;
+      }
 
-					&-#{$bp-value}-bottom {
-						align-items: flex-end;
-					}
-				}
+      &--bottom {
+        align-items: flex-end;
+      }
 
-				// row horizontal alignment helper
-				@if $row-vertical-alignment-enabled {
-					&-#{$bp-value}-left {
-						justify-content: flex-start;
-					}
+      &--stretch {
+        align-items: stretch;
+      }
+    }
+  }
 
-					&-#{$bp-value}-right {
-						justify-content: flex-end;
-					}
+  @mixin row-horizontal-alignment($element) {
+    @include check-breakpoint($element) {
+      &--left {
+        justify-content: flex-start;
+      }
 
-					&-#{$bp-value}-center {
-						justify-content: center;
-					}
+      &--center {
+        justify-content: center;
+      }
 
-					&-#{$bp-value}-between {
-						justify-content: space-between;
-					}
+      &--right {
+        justify-content: flex-end;
+      }
 
-					&-#{$bp-value}-around {
-						justify-content: space-around;
-					}
-				}
-			}
-		}
-	}
+      &--between {
+        justify-content: space-between;
+      }
 
-	.#{$column} {
-		@each $bp-value, $breakpoint in $breakpoints {
-			@include bp-from($bp-value) {
-				&-#{$bp-value}-top {
-					align-self: flex-start;
-				}
+      &--around {
+        justify-content: space-around;
+      }
+    }
+  }
 
-				&-#{$bp-value}-middle {
-					align-self: flex-center;
-				}
+  @mixin column-vertical-alignment($element) {
+    @include check-breakpoint($element) {
+      &--top {
+        align-self: flex-start;
+      }
 
-				&-#{$bp-value}-bottom {
-					align-self: flex-end;
-				}
+      &--middle {
+        align-self: center;
+      }
 
-				&-#{$bp-value}-first {
-					order: -1;
-				}
+      &--bottom {
+        align-self: flex-end;
+      }
 
-				&-#{$bp-value}-last {
-					order: 1;
-				}
-			}
-		}
-	}
+      &--stretch {
+        align-self: stretch;
+      }
+    }
+  }
+
+  @if $row-vertical-alignment-enabled {
+    @include row-vertical-alignment(#{$row});
+  }
+
+  @if $row-horizontal-alignment-enabled {
+    @include row-horizontal-alignment(#{$row});
+  }
+
+  @if $column-vertical-alignment-enabled {
+    @include column-vertical-alignment(#{$column});
+  }
 }

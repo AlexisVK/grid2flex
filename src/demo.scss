@@ -3,37 +3,69 @@ html {
   box-sizing: border-box;
 }
 
+
 *,
 *:after,
 *:before {
   box-sizing: inherit;
 }
 
+html,
+body {
+  min-width: 320px;
+  height: 100%;
+}
+
 body {
   overflow-x: hidden;
   font: 1em Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #333;
 }
 
 .container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .inner {
-	padding: 10px;
+  padding: 10px 15px;
 }
 
-.box {
-	&--dark {
-		background: #ddd;
-	}
+[class*="col-"] {
+  margin-bottom: 10px;
+  background: #ddd;
 
-	&--bordered {
-		border: 1px solid #666;
-	}
+  [class*="col-"] {
+    margin-bottom: 0;
+    background: #eee;
+  }
 }
 
-.full-width {
-  width: 100%;
+h2 {
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+}
+
+p {
+  margin: 0 0 0.5rem;
+}
+code,
+pre {
+  font-family: monospace, monospace;
+  font-size: 1rem;
+}
+
+pre {
+  overflow-x: auto;
+  font-size: .9rem;
+  white-space: pre;
+  word-wrap: normal;
+  background: #fcfcfc;
+  border: 1px solid #e6e6e6;
+  border-left-width: 5px;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 20px 0;
 }

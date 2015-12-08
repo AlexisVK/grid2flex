@@ -1,28 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>grid2flex</title>
-	<link rel="stylesheet" href="dist/grid2flex.css">
-	<link rel="stylesheet" href="dist/demo.css">
+  <meta charset="UTF-8">
+  <title>grid2flex</title>
+  <link rel="stylesheet" href="dist/grid2flex.css">
+  <link rel="stylesheet" href="dist/demo.css">
 </head>
 <body>
-	<div class="container">
-		<h2>Flexboxes</h2>
-		<div class="row">
-			<div class="col-xs-3 box--dark">
-				<div class="inner">Simple stretch box</div>
-			</div>
-			<div class="col-xs-3 box--dark">
-				<div class="inner">Simple stretch box</div>
-			</div>
-			<div class="col-xs-3 box--dark">
-				<div class="inner">Simple stretch box</div>
-			</div>
-			<div class="col-xs-3 box--dark">
-				<div class="inner">Simple stretch box</div>
-			</div>
-		</div>
-	</div>
+  <div class="container">
+    <div class="section">
+      <h3>Columns with auto width</h3>
+      <div class="row">
+        <div class="col-xs"><div class="inner">col</div></div>
+      </div>
+      <div class="row">
+        <div class="col-xs"><div class="inner">col</div></div>
+        <div class="col-xs"><div class="inner">col</div></div>
+      </div>
+      <div class="row">
+        <div class="col-xs"><div class="inner">col</div></div>
+        <div class="col-xs"><div class="inner">col</div></div>
+        <div class="col-xs"><div class="inner">col</div></div>
+        <div class="col-xs"><div class="inner">col</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <h3>Responsive columns</h3>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
+        <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
+        <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
+        <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <h3>Nested grid</h3>
+      <div class="row">
+        <div class="col-xs">
+          <div class="row">
+            <div class="col-xs"><div class="inner">col</div></div>
+            <div class="col-xs"><div class="inner">col</div></div>
+          </div>
+        </div>
+        <div class="col-xs">
+          <div class="row-gutter-none">
+            <div class="col-xs"><div class="inner">col</div></div>
+            <div class="col-xs"><div class="inner">col</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--     Nested grid
+    Alignment for row (top, middle, bottom) with media queries
+    Alignment for column (top, middle, bottom) with media queries
+    Offset for columns with media queries
+    Customizable gutters
+    Customizable breakpoints
+    Customizable namespaces for column and grid
+    Customizable columns count
+    Horizontal alignment for rows
+    Using different columns in one row -->
+
+  </div>
 </body>
 </html>
