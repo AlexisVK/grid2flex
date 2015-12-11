@@ -35,7 +35,7 @@
   margin-left: ($gutter / -2);
   margin-right: ($gutter / -2);
 
-  [class*="#{$column}-"] {
+  > [class*="#{$column}-"] {
     padding-left: ($gutter / 2);
     padding-right: ($gutter / 2);
   }
@@ -51,25 +51,20 @@
   %row {
     display: flex;
     flex-flow: row wrap;
+    flex: 1 1 0;
   }
 
   // rows and gutters
   @each $gutter-value, $gutter in $gutters {
-    @if ($gutter != 0) {
-      @if ($gutter-value != "gutter-default") {
-        .#{$row}-#{$gutter-value} {
-          @extend %row;
-          @include create-gutter($gutter);
-        }
-      } @else {
-        .#{$row} {
-          @extend %row;
-          @include create-gutter($gutter);
-        }
-      }
-    } @else {
+    @if ($gutter-value != "gutter") {
       .#{$row}-#{$gutter-value} {
         @extend %row;
+        @include create-gutter($gutter);
+      }
+    } @else {
+      .#{$row} {
+        @extend %row;
+        @include create-gutter($gutter);
       }
     }
   }
@@ -79,6 +74,7 @@
     position: relative;
     min-height: 1px;
     background-clip: content-box !important;
+    display: flex;
   }
 
   // width calculation mixin
@@ -94,6 +90,10 @@
           flex: 1 1 0;
         }
       }
+    }
+
+    &-auto {
+      flex: 0 0 auto;
     }
   }
 

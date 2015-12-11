@@ -1,29 +1,42 @@
-.row-gutter-none, .row, .row-gutter-large {
+.row, .row-gutter-none, .row-gutter-large {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-flow: row wrap;
   -ms-flex-flow: row wrap;
-  flex-flow: row wrap; }
+  flex-flow: row wrap;
+  -webkit-flex: 1 1 0;
+  -ms-flex: 1 1 0;
+  flex: 1 1 0; }
 
 .row {
   margin-left: -10px;
   margin-right: -10px; }
-  .row [class*="col-"] {
+  .row > [class*="col-"] {
     padding-left: 10px;
     padding-right: 10px; }
+
+.row-gutter-none {
+  margin-left: 0;
+  margin-right: 0; }
+  .row-gutter-none > [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0; }
 
 .row-gutter-large {
   margin-left: -20px;
   margin-right: -20px; }
-  .row-gutter-large [class*="col-"] {
+  .row-gutter-large > [class*="col-"] {
     padding-left: 20px;
     padding-right: 20px; }
 
 [class*="col-"] {
   position: relative;
   min-height: 1px;
-  background-clip: content-box !important; }
+  background-clip: content-box !important;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
 
 .col-xs {
   -webkit-flex: 1 1 0;
@@ -89,6 +102,11 @@
   -webkit-flex: 0 0 100%;
   -ms-flex: 0 0 100%;
   flex: 0 0 100%; }
+
+.col-xs-auto {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto; }
 
 .col-xs-offset-0 {
   margin-left: 0%; }
@@ -179,6 +197,10 @@
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%; }
+  .col-sm-auto {
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto; }
   .col-sm-offset-0 {
     margin-left: 0%; }
   .col-sm-offset-1 {
@@ -257,6 +279,10 @@
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%; }
+  .col-md-auto {
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto; }
   .col-md-offset-0 {
     margin-left: 0%; }
   .col-md-offset-1 {
@@ -335,6 +361,10 @@
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%; }
+  .col-lg-auto {
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto; }
   .col-lg-offset-0 {
     margin-left: 0%; }
   .col-lg-offset-1 {

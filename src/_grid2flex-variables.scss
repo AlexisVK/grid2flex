@@ -13,9 +13,10 @@ $configuration: (
 ) !default;
 
 // default gutters
+// default gutter value used on $row without gutter prefixes
 $gutters: (
+	gutter:                                      20px,
 	gutter-none:                                 0,
-	gutter-default:                              20px,
 	gutter-large:                                40px
 ) !default;
 
