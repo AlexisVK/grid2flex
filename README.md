@@ -2,5 +2,7 @@
 ##Configurable flexbox grid system
 ###Coming soon!
 ##Install
-###nmp
+###npm
 npm install grid2flex --save
+###bower
+bower install grid2flex --save
