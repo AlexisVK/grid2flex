@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Configurable flexbox grid system",
   "main": [
-    "src/gridlex.scss"
+    "src/grid2flex.scss"
   ],
   "repository": {
     "type": "git",
