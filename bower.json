@@ -1,25 +1,25 @@
 {
   "name": "grid2flex",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Configurable flexbox grid system",
   "main": [
-      "src/gridlex.scss"
+    "src/gridlex.scss"
   ],
   "repository": {
-      "type": "git",
-      "url": "git@github.com:AlexisVK/grid2flex.git"
+    "type": "git",
+    "url": "git@github.com:AlexisVK/grid2flex.git"
   },
   "author": "https://github.com/AlexisVK",
   "keywords": [
-      "flex",
-      "grid",
-      "sass",
-      "scss"
+    "flex",
+    "grid",
+    "sass",
+    "scss"
   ],
   "license": "MIT",
   "ignore": [
-      "node_modules",
-      "bower_components",
-      "dist"
+    "node_modules",
+    "bower_components",
+    "dist"
   ]
 }
