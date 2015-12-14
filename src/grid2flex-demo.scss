@@ -3,7 +3,6 @@ html {
   box-sizing: border-box;
 }
 
-
 *,
 *:after,
 *:before {
@@ -12,7 +11,6 @@ html {
 
 html,
 body {
-  min-width: 320px;
   height: 100%;
 }
 
@@ -51,22 +49,4 @@ h2 {
 
 p {
   margin: 0 0 0.5rem;
-}
-code,
-pre {
-  font-family: monospace, monospace;
-  font-size: 1rem;
-}
-
-pre {
-  overflow-x: auto;
-  font-size: .9rem;
-  white-space: pre;
-  word-wrap: normal;
-  background: #fcfcfc;
-  border: 1px solid #e6e6e6;
-  border-left-width: 5px;
-  border-radius: 3px;
-  padding: 10px;
-  margin: 20px 0;
 }
