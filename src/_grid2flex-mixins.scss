@@ -134,6 +134,10 @@
         align-items: center;
       }
 
+      &--baseline {
+        align-items: baseline;
+      }
+
       &--bottom {
         align-items: flex-end;
       }
@@ -188,6 +192,10 @@
 
       &--middle {
         align-self: center;
+      }
+
+      &--baseline {
+        align-self: baseline;
       }
 
       &--bottom {
