@@ -1,6 +1,6 @@
 {
   "name": "grid2flex",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Configurable flexbox grid system",
   "main": "Gulpfile.js",
   "scripts": {
