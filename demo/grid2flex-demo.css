@@ -32,6 +32,10 @@ body {
     margin-top: 10px;
     background: #eee; }
 
+h1 {
+  font-size: 2rem;
+  margin: 0 0 1rem; }
+
 h2 {
   font-size: 1.5rem;
   margin: 0 0 1rem; }

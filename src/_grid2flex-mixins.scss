@@ -56,7 +56,7 @@
   // rows and gutters
   @each $gutter-value, $gutter in $gutters {
     @if ($gutter-value != "gutter") {
-      .#{$row}-#{$gutter-value} {
+      .#{$row}--#{$gutter-value} {
         @extend %row;
         @include create-gutter($gutter);
       }
@@ -75,6 +75,7 @@
     background-clip: content-box !important;
     display: flex;
 
+    // prevent flex behavior from child element
     > :not([class*="#{$column}-"]) {
       flex-basis: 100%;
     }
@@ -95,6 +96,7 @@
       }
     }
 
+    // content width column
     &-auto {
       flex: 0 1 auto;
     }

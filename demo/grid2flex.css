@@ -1,4 +1,4 @@
-.row, .row-gutter-none, .row-gutter-large {
+.row, .row--gutter-none, .row--gutter-large {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -13,17 +13,17 @@
     padding-left: 10px;
     padding-right: 10px; }
 
-.row-gutter-none {
+.row--gutter-none {
   margin-left: 0;
   margin-right: 0; }
-  .row-gutter-none > [class*="col-"] {
+  .row--gutter-none > [class*="col-"] {
     padding-left: 0;
     padding-right: 0; }
 
-.row-gutter-large {
+.row--gutter-large {
   margin-left: -20px;
   margin-right: -20px; }
-  .row-gutter-large > [class*="col-"] {
+  .row--gutter-large > [class*="col-"] {
     padding-left: 20px;
     padding-right: 20px; }
 
