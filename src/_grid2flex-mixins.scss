@@ -50,7 +50,6 @@
 
   %row {
     display: flex;
-    flex-flow: row wrap;
     flex: 1 1 0;
   }
 
@@ -75,6 +74,10 @@
     min-height: 1px;
     background-clip: content-box !important;
     display: flex;
+
+    > :not([class*="#{$column}-"]) {
+      flex-basis: 100%;
+    }
   }
 
   // width calculation mixin
@@ -93,7 +96,7 @@
     }
 
     &-auto {
-      flex: 0 0 auto;
+      flex: 0 1 auto;
     }
   }
 
@@ -165,6 +168,18 @@
     }
   }
 
+  @mixin row-wrap($element) {
+    @include check-breakpoint($element) {
+      &--multi {
+        flex-wrap: wrap;
+      }
+
+      &--line {
+        flex-wrap: wrap;
+      }
+    }
+  }
+
   @mixin column-vertical-alignment($element) {
     @include check-breakpoint($element) {
       &--top {
@@ -184,6 +199,8 @@
       }
     }
   }
+
+  @include row-wrap(#{$row});
 
   @if $row-vertical-alignment-enabled {
     @include row-vertical-alignment(#{$row});
