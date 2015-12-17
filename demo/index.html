@@ -8,236 +8,238 @@
   <link rel="stylesheet" href="grid2flex-demo.css">
 </head>
 <body>
-  <div class="container">
-    <div class="section">
-      <h3>Columns with auto width</h3>
-      <p>Just place column into row</p>
-      <div class="row">
-        <div class="col-xs"><div class="inner">col</div></div>
-      </div>
-      <div class="row">
-        <div class="col-xs"><div class="inner">col</div></div>
-        <div class="col-xs"><div class="inner">col</div></div>
-      </div>
-      <div class="row">
-        <div class="col-xs"><div class="inner">col</div></div>
-        <div class="col-xs"><div class="inner">col</div></div>
-        <div class="col-xs"><div class="inner">col</div></div>
-        <div class="col-xs"><div class="inner">col</div></div>
-      </div>
-    </div>
-    <div class="section">
-      <h3>Responsive columns</h3>
-      <p>Use prefixes to change column width on different screens</p>
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
-        <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
-        <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
-        <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
-      </div>
-    </div>
-    <div class="section">
-      <h3>Nested grid</h3>
-      <p>You can place column in column, but you need to wrap nested columns to apply gutter</p>
-      <div class="row">
-        <div class="col-xs-12 col-lg">
+  <div class="grid-container">
+    <div class="container">
+      <div class="section">
+        <h3>Columns with auto width</h3>
+        <p>Just place column into row</p>
+        <div class="row">
+          <div class="col-xs"><div class="inner">col</div></div>
+        </div>
+        <div class="row">
           <div class="col-xs"><div class="inner">col</div></div>
           <div class="col-xs"><div class="inner">col</div></div>
         </div>
-        <div class="col-xs-12 col-lg">
-          <div class="row">
+        <div class="row">
+          <div class="col-xs"><div class="inner">col</div></div>
+          <div class="col-xs"><div class="inner">col</div></div>
+          <div class="col-xs"><div class="inner">col</div></div>
+          <div class="col-xs"><div class="inner">col</div></div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Responsive columns</h3>
+        <p>Use prefixes to change column width on different screens</p>
+        <div class="row">
+          <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
+          <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
+          <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
+          <div class="col-xs-12 col-md-6 col-lg-3"><div class="inner">col-xs-12 col-md-6 col-lg-3</div></div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Nested grid</h3>
+        <p>You can place column in column, but you need to wrap nested columns to apply gutter</p>
+        <div class="row">
+          <div class="col-xs-12 col-lg">
             <div class="col-xs"><div class="inner">col</div></div>
             <div class="col-xs"><div class="inner">col</div></div>
           </div>
+          <div class="col-xs-12 col-lg">
+            <div class="row">
+              <div class="col-xs"><div class="inner">col</div></div>
+              <div class="col-xs"><div class="inner">col</div></div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="section">
-      <h3>Auto width for column</h3>
-      <p>Use prefix "auto" if you don't want to apply width on column</p>
-      <div class="row">
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs col-lg-auto">
-          <div class="inner">col</div>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <h3>Alignment for rows</h3>
-      <p>By default all columns in row are stretched</p>
-      <div class="row">
-        <div class="col-xs">
-          <div class="inner"><br> <br> col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
+      <div class="section">
+        <h3>Auto width for column</h3>
+        <p>Use prefix "auto" if you don't want to apply width on column</p>
+        <div class="row">
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs col-lg-auto">
+            <div class="inner">col</div>
+          </div>
         </div>
       </div>
-      <p>Use prefixes "top", "middle", "bottom" to align all columns in row</p>
-      <div class="row row-xs--top">
-        <div class="col-xs">
-          <div class="inner"><br> <br> col</div>
+      <div class="section">
+        <h3>Alignment for rows</h3>
+        <p>By default all columns in row are stretched</p>
+        <div class="row">
+          <div class="col-xs">
+            <div class="inner"><br> <br> col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
         </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
+        <p>Use prefixes "top", "middle", "bottom" to align all columns in row</p>
+        <div class="row row-xs--top">
+          <div class="col-xs">
+            <div class="inner"><br> <br> col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
         </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
+        <div class="row row-xs--middle">
+          <div class="col-xs">
+            <div class="inner"><br> <br> col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
         </div>
-      </div>
-      <div class="row row-xs--middle">
-        <div class="col-xs">
-          <div class="inner"><br> <br> col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-      </div>
-      <div class="row row-xs--bottom">
-        <div class="col-xs">
-          <div class="inner"><br> <br> col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <h3>Distribution for rows</h3>
-      <p>Use prefixes "right", "left", "center", "around", "between" to align all columns in row</p>
-      <p>Right aligned columns</p>
-      <div class="row row-xs--right">
-        <div class="col-xs-5">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs-5">
-          <div class="inner">col</div>
-        </div>
-      </div>
-      <p>Left aligned columns</p>
-      <div class="row row-xs--left">
-        <div class="col-xs-5">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs-5">
-          <div class="inner">col</div>
+        <div class="row row-xs--bottom">
+          <div class="col-xs">
+            <div class="inner"><br> <br> col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
         </div>
       </div>
-      <p>Centered columns</p>
-      <div class="row row-xs--center">
-        <div class="col-xs-5">
-          <div class="inner">col</div>
+      <div class="section">
+        <h3>Distribution for rows</h3>
+        <p>Use prefixes "right", "left", "center", "around", "between" to align all columns in row</p>
+        <p>Right aligned columns</p>
+        <div class="row row-xs--right">
+          <div class="col-xs-5">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs-5">
+            <div class="inner">col</div>
+          </div>
         </div>
-        <div class="col-xs-5">
-          <div class="inner">col</div>
+        <p>Left aligned columns</p>
+        <div class="row row-xs--left">
+          <div class="col-xs-5">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs-5">
+            <div class="inner">col</div>
+          </div>
         </div>
-      </div>
-      <p>Arround alignment</p>
-      <div class="row row-xs--around">
-        <div class="col-xs-5">
-          <div class="inner">col</div>
+        <p>Centered columns</p>
+        <div class="row row-xs--center">
+          <div class="col-xs-5">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs-5">
+            <div class="inner">col</div>
+          </div>
         </div>
-        <div class="col-xs-5">
-          <div class="inner">col</div>
+        <p>Arround alignment</p>
+        <div class="row row-xs--around">
+          <div class="col-xs-5">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs-5">
+            <div class="inner">col</div>
+          </div>
         </div>
-      </div>
-      <p>Between alignment</p>
-      <div class="row row-xs--between">
-        <div class="col-xs-5">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs-5">
-          <div class="inner">col</div>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <h3>Alignment for columns</h3>
-      <p>Use prefixes "top", "middle", "bottom" to align column</p>
-      <div class="row">
-        <div class="col-xs">
-          <div class="inner"><br> <br> col</div>
-        </div>
-        <div class="col-xs col-xs--top">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs col-xs--middle">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs col-xs--bottom">
-          <div class="inner">col</div>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <h3>Offsets for columns</h3>
-      <p>Use offset prefixes for column to apply custom offset</p>
-      <div class="row">
-        <div class="col-xs-12 col-lg-3">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs-12 col-lg-3 col-lg-offset-3">
-          <div class="inner">col</div>
+        <p>Between alignment</p>
+        <div class="row row-xs--between">
+          <div class="col-xs-5">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs-5">
+            <div class="inner">col</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="section">
-      <h3>Gutters</h3>
-      <p>Use gutter prefixes for rows to customize gutters</p>
-      <p>Default (without prefixes)</p>
-      <div class="row">
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-      </div>
-      <p>Without gutters (row--gutter-none)</p>
-      <div class="row--gutter-none">
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
+      <div class="section">
+        <h3>Alignment for columns</h3>
+        <p>Use prefixes "top", "middle", "bottom" to align column</p>
+        <div class="row">
+          <div class="col-xs">
+            <div class="inner"><br> <br> col</div>
+          </div>
+          <div class="col-xs col-xs--top">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs col-xs--middle">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs col-xs--bottom">
+            <div class="inner">col</div>
+          </div>
         </div>
       </div>
-      <p>Large gutter (row--gutter-large)</p>
-      <div class="row--gutter-large">
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
-        </div>
-        <div class="col-xs">
-          <div class="inner">col</div>
+      <div class="section">
+        <h3>Offsets for columns</h3>
+        <p>Use offset prefixes for column to apply custom offset</p>
+        <div class="row">
+          <div class="col-xs-12 col-lg-3">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs-12 col-lg-3 col-lg-offset-3">
+            <div class="inner">col</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="section">
-      <h3>Text alignment</h3>
-      <p>Use "baseline" prefix to better bottom text alignment</p>
-      <div class="row row-xs--baseline">
-        <div class="inner"><h1>HEADER 1</h1></div>
-        <div class="inner"><h2>HEADER 2</h2></div>
+      <div class="section">
+        <h3>Gutters</h3>
+        <p>Use gutter prefixes for rows to customize gutters</p>
+        <p>Default (without prefixes)</p>
+        <div class="row">
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+        </div>
+        <p>Without gutters (row--gutter-none)</p>
+        <div class="row--gutter-none">
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+        </div>
+        <p>Large gutter (row--gutter-large)</p>
+        <div class="row--gutter-large">
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+          <div class="col-xs">
+            <div class="inner">col</div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>Text alignment</h3>
+        <p>Use "baseline" prefix to better bottom text alignment</p>
+        <div class="row row-xs--baseline">
+          <div class="inner"><h1>HEADER 1</h1></div>
+          <div class="inner"><h2>HEADER 2</h2></div>
+        </div>
       </div>
     </div>
   </div>
