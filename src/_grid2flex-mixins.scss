@@ -1,4 +1,4 @@
-// mixins
+// media queries
 @mixin bp-from($bp-name) {
   $bp-value: map-get($breakpoints, $bp-name);
 
@@ -11,6 +11,7 @@
   }
 }
 
+// breakpoints prefixes with media queries
 @mixin check-breakpoint($element, $breakpoints: $breakpoints, $configuration: $configuration) {
   $breakpoints-enabled: map-get($configuration, breakpoints-enabled);
 
@@ -29,6 +30,7 @@
   }
 }
 
+// gutters
 @mixin create-gutter($gutter, $configuration: $configuration) {
   $column: #{map-get($configuration, column)};
 
@@ -41,6 +43,7 @@
   }
 }
 
+// grid
 @mixin create-grid($configuration: $configuration, $breakpoints: $breakpoints, $gutters: $gutters) {
   $columns-count: map-get($configuration, columns-count);
   $row: #{map-get($configuration, row)};
@@ -48,6 +51,7 @@
   $offsets-enabled: map-get($configuration, offsets-enabled);
   $breakpoints-enabled: map-get($configuration, breakpoints-enabled);
 
+  // basic flex container (row)
   %row {
     display: flex;
     flex: 1 1 0;
@@ -119,13 +123,38 @@
 
 // helpers
 @mixin create-grid-helpers($configuration: $configuration, $breakpoints: $breakpoints) {
+  $container: #{map-get($configuration, container)};
   $row: #{map-get($configuration, row)};
   $column: #{map-get($configuration, column)};
+  $box-sizing-enabled: map-get($configuration, box-sizing-enabled);
   $row-vertical-alignment-enabled: map-get($configuration, row-vertical-alignment-enabled);
   $row-horizontal-alignment-enabled: map-get($configuration, row-horizontal-alignment-enabled);
   $column-vertical-alignment-enabled: map-get($configuration, column-vertical-alignment-enabled);
   $breakpoints-enabled: map-get($configuration, breakpoints-enabled);
 
+  // box sizing
+  @mixin box-sizing-helper() {
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:after,
+    *:before {
+      box-sizing: inherit;
+    }
+  }
+
+  // grid container
+  @mixin grid-container($element) {
+    .#{$element} {
+      overflow-x: hidden;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // vertical alignment for rows
   @mixin row-vertical-alignment($element) {
     @include check-breakpoint($element) {
       &--top {
@@ -150,6 +179,7 @@
     }
   }
 
+  // space distribution
   @mixin row-horizontal-alignment($element) {
     @include check-breakpoint($element) {
       &--left {
@@ -174,6 +204,7 @@
     }
   }
 
+  // flex wrap
   @mixin row-wrap($element) {
     @include check-breakpoint($element) {
       &--multi {
@@ -186,6 +217,7 @@
     }
   }
 
+  // align self (for columns)
   @mixin column-vertical-alignment($element) {
     @include check-breakpoint($element) {
       &--top {
@@ -210,6 +242,11 @@
     }
   }
 
+  @if $box-sizing-enabled {
+    @include box-sizing-helper();
+  }
+
+  @include grid-container(#{$container});
   @include row-wrap(#{$row});
 
   @if $row-vertical-alignment-enabled {

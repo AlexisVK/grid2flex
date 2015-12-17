@@ -1,10 +1,10 @@
-// variables
-
 // default configuration
 $configuration: (
 	columns-count:                               12,
+	container:                                   grid-container,
 	row:                                         row,
 	column:                                      col,
+	box-sizing-enabled:                          true,
 	offsets-enabled:                             true,
 	row-vertical-alignment-enabled:              true,
 	row-horizontal-alignment-enabled:            true,
@@ -13,9 +13,8 @@ $configuration: (
 ) !default;
 
 // default gutters
-// default gutter value used on $row without gutter prefixes
 $gutters: (
-	gutter:                                      20px,
+	gutter:                                      20px, // default gutter on $row without gutter prefix
 	gutter-none:                                 0,
 	gutter-large:                                40px
 ) !default;
