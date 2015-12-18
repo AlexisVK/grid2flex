@@ -54,7 +54,7 @@
   // basic flex container (row)
   %row {
     display: flex;
-    flex: 1 1 0;
+    flex-wrap: wrap;
   }
 
   // rows and gutters
@@ -77,12 +77,8 @@
     position: relative;
     min-height: 1px;
     background-clip: content-box !important;
-    display: flex;
-
-    // prevent flex behavior from child element
-    > :not([class*="#{$column}-"]) {
-      flex-basis: 100%;
-    }
+    margin-left: 0;
+    margin-right: 0;
   }
 
   // width calculation mixin

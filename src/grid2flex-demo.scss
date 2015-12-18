@@ -6,10 +6,30 @@ body {
   min-width: 320px;
 }
 
+.grid-example {
+  position: absolute;
+  z-index: -1;
+  left: 10px;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  opacity: 0.5;
+
+  [class*="col-"] {
+    margin: 0;
+    background: #b347af;
+
+    &:nth-child(even) {
+      background: #e06ddc;
+    }
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  position: relative;
 }
 
 .inner {
@@ -19,6 +39,7 @@ body {
 [class*="col-"] {
   margin-bottom: 10px;
   background: #ddd;
+  position: relative;
 
   [class*="col-"] {
     margin-top: 10px;
