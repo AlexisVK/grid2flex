@@ -10,6 +10,20 @@
 <body>
   <div class="grid-container">
     <div class="container">
+      <div class="grid-example row--gutter-none">
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+        <div class="col-xs"></div>
+      </div>
       <div class="section">
         <h3>Columns with auto width</h3>
         <p>Just place column into row</p>
@@ -41,9 +55,15 @@
         <h3>Nested grid</h3>
         <p>You can place column in column, but you need to wrap nested columns to apply gutter</p>
         <div class="row">
+          <div class="col-xs-12 col-lg row">
+            <div class="col-xs"><div class="inner">col</div></div>
+            <div class="col-xs"><div class="inner">col</div></div>
+          </div>
           <div class="col-xs-12 col-lg">
-            <div class="col-xs"><div class="inner">col</div></div>
-            <div class="col-xs"><div class="inner">col</div></div>
+            <div class="row--gutter-none">
+              <div class="col-xs"><div class="inner">col</div></div>
+              <div class="col-xs"><div class="inner">col</div></div>
+            </div>
           </div>
           <div class="col-xs-12 col-lg">
             <div class="row">

@@ -2,9 +2,9 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex: 1 1 0;
-  -ms-flex: 1 1 0;
-  flex: 1 1 0; }
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
 
 .row {
   margin-left: -10px;
@@ -31,13 +31,8 @@
   position: relative;
   min-height: 1px;
   background-clip: content-box !important;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
-  [class*="col-"] > :not([class*="col-"]) {
-    -webkit-flex-basis: 100%;
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 100%; }
+  margin-left: 0;
+  margin-right: 0; }
 
 .col-xs {
   -webkit-flex: 1 1 0;
