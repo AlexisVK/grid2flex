@@ -32,7 +32,10 @@
   min-height: 1px;
   background-clip: content-box !important;
   margin-left: 0;
-  margin-right: 0; }
+  margin-right: 0;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%; }
 
 .col-xs {
   -webkit-flex: 1 1 0;
