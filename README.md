@@ -6,6 +6,18 @@ grid2flex based on Flexbox Layout.
 
 The Flexbox Layout (Flexible Box) module (currently a W3C Last Call Working Draft) aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex").
 
+## Install
+
+### npm
+<pre><code>npm install grid2flex --save</code></pre>
+
+### bower
+<pre><code>bower install grid2flex --save</code></pre>
+
+### manual install
+Unpack and copy files from src/ to your project.
+
+
 ## Include grid2flex module
 
 You can setup grid2flex by adding custom variables file. Use sass @import directive to include your custom variables.
@@ -155,12 +167,3 @@ This variable define wich prefixes will be generated. If breakpoints-enabled fro
 
 ## Browser support
 Visit <a href="http://caniuse.com/#feat=flexbox">Can I use</a> to check browser support.
-
-
-## Install
-
-### npm
-<pre><code>npm install grid2flex --save</code></pre>
-
-### bower
-<pre><code>bower install grid2flex --save</code></pre>
