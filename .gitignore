@@ -10,4 +10,5 @@ Thumbs.db
 
 # Node
 node_modules
+bower_components
 npm-*.log
