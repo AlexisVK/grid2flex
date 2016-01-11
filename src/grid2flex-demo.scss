@@ -14,6 +14,7 @@ body {
 [class*="col-"] {
   margin-bottom: 10px;
   background: #ddd;
+  background-clip: content-box !important;
   position: relative;
 
   [class*="col-"] {

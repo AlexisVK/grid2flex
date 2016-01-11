@@ -76,7 +76,6 @@
   [class*="#{$column}-"] {
     position: relative;
     min-height: 1px;
-    background-clip: content-box !important;
     margin-left: 0;
     margin-right: 0;
     flex-basis: 100%;
