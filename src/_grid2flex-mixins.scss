@@ -86,12 +86,14 @@
     @for $i from 0 through $columns-count {
       @if ($i > 0) {
         &-#{$i} {
+          flex: auto;
           max-width: percentage($i / $columns-count);
         }
       } @else {
         // equal column width
         & {
           flex: 1;
+          max-width: 100%;
         }
       }
     }
@@ -99,6 +101,7 @@
     // content width column
     &-auto {
       flex: 0 1 auto;
+      max-width: 100%;
     }
   }
 
