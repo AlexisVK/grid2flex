@@ -73,7 +73,7 @@ Configuration variable:
 		</tr>
 		<tr>
 			<td>container</td>
-			<td>Define class name of main container. Use this container to prevent gorizontal scroll on wrapper. Width and height set to 100%</td>
+			<td>Define class name of main container. Use this container to prevent horizontal scroll on wrapper. Width and height set to 100%</td>
 			<td>string, default == grid-container</td>
 		</tr>
 		<tr>
