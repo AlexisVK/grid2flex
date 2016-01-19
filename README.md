@@ -164,6 +164,74 @@ Breakpoints variable:
 
 This variable define wich prefixes will be generated. If breakpoints-enabled from $configuration set to false, $breakpoints will be ignored.
 
+## Grid classes
+### Rows classes:
+The main row class is defined in $configuration variable. Basic class name is <i>.row</i>.
+Helpers will be generated with basic class name + breakpoint name (if breakpoints are enabled) + helper name:
+<table>
+	<thead>
+		<tr>
+			<th>Helper name</th>
+			<th>Classes examples</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Gutter modifiers</td>
+			<td>.row--gutter-none, .row--gutter-large</td>
+			<td>Define grid gutters from $gutters</td>
+		</tr>
+		<tr>
+			<td>Row wrapping</td>
+			<td>.row-(bp)--multi .row-(bp)--line</td>
+			<td>Define wrapping behavior for columns in row</td>
+		</tr>
+		<tr>
+			<td>Vertical alignment</td>
+			<td>.row-(bp)--top, .row-(bp)--middle, .row-(bp)--baseline, .row-(bp)--bottom, .row-(bp)--stretch</td>
+			<td>Define vertical alignment for columns in row</td>
+		</tr>
+		<tr>
+			<td>Space distribution</td>
+			<td>.row-(bp)--left, .row-(bp)--right, .row-(bp)--between, .row-(bp)--around</td>
+			<td>Define space distribution in row</td>
+		</tr>
+	</tbody>
+</table>
+
+### Columns classes:
+The main column class is defined in $configuration variable. Basic class name is <i>.col</i>.
+Helpers will be generated with basic class name + breakpoint name (if breakpoints are enabled) + helper name:
+<table>
+	<thead>
+		<tr>
+			<th>Helper name</th>
+			<th>Classes examples</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Column sizes</td>
+			<td>.col-(bp)-$i (from 1 to $columns-count), .col-(bp) (column equal width), .col-(bp)-auto (auto width)</td>
+			<td>Define column size</td>
+		</tr>
+		<tr>
+			<td>Column offsets</td>
+			<td>.col-(bp)-offset-$i (from 0 to $columns-count - 1)</td>
+			<td>Define offset for column</td>
+		</tr>
+		<tr>
+			<td>Vertical alignment</td>
+			<td>.col-(bp)--top, .col-(bp)--middle, .col-(bp)--baseline, .col-(bp)--bottom, .col-(bp)--stretch</td>
+			<td>Define vertical alignment for column</td>
+		</tr>
+	</tbody>
+</table>
+
+Also you can check demo page grid2flex/demo/index.html
+
 
 ## Browser support
 Visit <a href="http://caniuse.com/#feat=flexbox">Can I use</a> to check browser support.
