@@ -91,14 +91,14 @@
         &-#{$i} {
           flex: auto;
           width: percentage($i / $columns-count); // 1 
-          //max-width: percentage($i / $columns-count); // 2
+          max-width: percentage($i / $columns-count); // 2
         }
       } @else {
         // equal column width
         & {
           flex: 1;
           width: auto;
-          //max-width: 100%;
+          max-width: 100%;
         }
       }
     }
@@ -107,7 +107,7 @@
     &-auto {
       flex: 0 1 auto;
       width: auto;
-      //max-width: 100%;
+      max-width: 100%;
     }
   }
 

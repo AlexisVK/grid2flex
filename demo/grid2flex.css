@@ -40,85 +40,99 @@
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  width: auto; }
+  width: auto;
+  max-width: 100%; }
 
 .col-xs-1 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 8.33333%; }
+  width: 8.33333%;
+  max-width: 8.33333%; }
 
 .col-xs-2 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 16.66667%; }
+  width: 16.66667%;
+  max-width: 16.66667%; }
 
 .col-xs-3 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 25%; }
+  width: 25%;
+  max-width: 25%; }
 
 .col-xs-4 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 33.33333%; }
+  width: 33.33333%;
+  max-width: 33.33333%; }
 
 .col-xs-5 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 41.66667%; }
+  width: 41.66667%;
+  max-width: 41.66667%; }
 
 .col-xs-6 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 50%; }
+  width: 50%;
+  max-width: 50%; }
 
 .col-xs-7 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 58.33333%; }
+  width: 58.33333%;
+  max-width: 58.33333%; }
 
 .col-xs-8 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 66.66667%; }
+  width: 66.66667%;
+  max-width: 66.66667%; }
 
 .col-xs-9 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 75%; }
+  width: 75%;
+  max-width: 75%; }
 
 .col-xs-10 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 83.33333%; }
+  width: 83.33333%;
+  max-width: 83.33333%; }
 
 .col-xs-11 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 91.66667%; }
+  width: 91.66667%;
+  max-width: 91.66667%; }
 
 .col-xs-12 {
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
-  width: 100%; }
+  width: 100%;
+  max-width: 100%; }
 
 .col-xs-auto {
   -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  width: auto; }
+  width: auto;
+  max-width: 100%; }
 
 .col-xs-offset-0 {
   margin-left: 0%; }
@@ -161,72 +175,86 @@
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    width: auto; }
+    width: auto;
+    max-width: 100%; }
   .col-sm-1 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 8.33333%; }
+    width: 8.33333%;
+    max-width: 8.33333%; }
   .col-sm-2 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 16.66667%; }
+    width: 16.66667%;
+    max-width: 16.66667%; }
   .col-sm-3 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 25%; }
+    width: 25%;
+    max-width: 25%; }
   .col-sm-4 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 33.33333%; }
+    width: 33.33333%;
+    max-width: 33.33333%; }
   .col-sm-5 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 41.66667%; }
+    width: 41.66667%;
+    max-width: 41.66667%; }
   .col-sm-6 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 50%; }
+    width: 50%;
+    max-width: 50%; }
   .col-sm-7 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 58.33333%; }
+    width: 58.33333%;
+    max-width: 58.33333%; }
   .col-sm-8 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 66.66667%; }
+    width: 66.66667%;
+    max-width: 66.66667%; }
   .col-sm-9 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 75%; }
+    width: 75%;
+    max-width: 75%; }
   .col-sm-10 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 83.33333%; }
+    width: 83.33333%;
+    max-width: 83.33333%; }
   .col-sm-11 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 91.66667%; }
+    width: 91.66667%;
+    max-width: 91.66667%; }
   .col-sm-12 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 100%; }
+    width: 100%;
+    max-width: 100%; }
   .col-sm-auto {
     -webkit-flex: 0 1 auto;
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
-    width: auto; }
+    width: auto;
+    max-width: 100%; }
   .col-sm-offset-0 {
     margin-left: 0%; }
   .col-sm-offset-1 {
@@ -257,72 +285,86 @@
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    width: auto; }
+    width: auto;
+    max-width: 100%; }
   .col-md-1 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 8.33333%; }
+    width: 8.33333%;
+    max-width: 8.33333%; }
   .col-md-2 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 16.66667%; }
+    width: 16.66667%;
+    max-width: 16.66667%; }
   .col-md-3 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 25%; }
+    width: 25%;
+    max-width: 25%; }
   .col-md-4 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 33.33333%; }
+    width: 33.33333%;
+    max-width: 33.33333%; }
   .col-md-5 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 41.66667%; }
+    width: 41.66667%;
+    max-width: 41.66667%; }
   .col-md-6 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 50%; }
+    width: 50%;
+    max-width: 50%; }
   .col-md-7 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 58.33333%; }
+    width: 58.33333%;
+    max-width: 58.33333%; }
   .col-md-8 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 66.66667%; }
+    width: 66.66667%;
+    max-width: 66.66667%; }
   .col-md-9 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 75%; }
+    width: 75%;
+    max-width: 75%; }
   .col-md-10 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 83.33333%; }
+    width: 83.33333%;
+    max-width: 83.33333%; }
   .col-md-11 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 91.66667%; }
+    width: 91.66667%;
+    max-width: 91.66667%; }
   .col-md-12 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 100%; }
+    width: 100%;
+    max-width: 100%; }
   .col-md-auto {
     -webkit-flex: 0 1 auto;
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
-    width: auto; }
+    width: auto;
+    max-width: 100%; }
   .col-md-offset-0 {
     margin-left: 0%; }
   .col-md-offset-1 {
@@ -353,72 +395,86 @@
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    width: auto; }
+    width: auto;
+    max-width: 100%; }
   .col-lg-1 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 8.33333%; }
+    width: 8.33333%;
+    max-width: 8.33333%; }
   .col-lg-2 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 16.66667%; }
+    width: 16.66667%;
+    max-width: 16.66667%; }
   .col-lg-3 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 25%; }
+    width: 25%;
+    max-width: 25%; }
   .col-lg-4 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 33.33333%; }
+    width: 33.33333%;
+    max-width: 33.33333%; }
   .col-lg-5 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 41.66667%; }
+    width: 41.66667%;
+    max-width: 41.66667%; }
   .col-lg-6 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 50%; }
+    width: 50%;
+    max-width: 50%; }
   .col-lg-7 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 58.33333%; }
+    width: 58.33333%;
+    max-width: 58.33333%; }
   .col-lg-8 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 66.66667%; }
+    width: 66.66667%;
+    max-width: 66.66667%; }
   .col-lg-9 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 75%; }
+    width: 75%;
+    max-width: 75%; }
   .col-lg-10 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 83.33333%; }
+    width: 83.33333%;
+    max-width: 83.33333%; }
   .col-lg-11 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 91.66667%; }
+    width: 91.66667%;
+    max-width: 91.66667%; }
   .col-lg-12 {
     -webkit-flex: auto;
     -ms-flex: auto;
     flex: auto;
-    width: 100%; }
+    width: 100%;
+    max-width: 100%; }
   .col-lg-auto {
     -webkit-flex: 0 1 auto;
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
-    width: auto; }
+    width: auto;
+    max-width: 100%; }
   .col-lg-offset-0 {
     margin-left: 0%; }
   .col-lg-offset-1 {
