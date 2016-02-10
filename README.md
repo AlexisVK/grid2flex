@@ -230,7 +230,7 @@ Helpers will be generated with basic class name + breakpoint name (if breakpoint
 	</tbody>
 </table>
 
-Also you can check demo page grid2flex/demo/index.html
+Also you can check <a href="http://alexisvk.github.io/grid2flex/demo/">demo page</a>
 
 
 ## Browser support
