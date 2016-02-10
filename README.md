@@ -1,6 +1,6 @@
 # grid2flex
 ## Configurable flexbox grid system
-v. 0.1.2
+v. 0.1.3
 
 grid2flex based on Flexbox Layout.
 
