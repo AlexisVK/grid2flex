@@ -79,6 +79,7 @@
     margin-left: 0;
     margin-right: 0;
     flex-basis: 100%;
+    max-width: 100%;
   }
 
   // 1. Workaround for IE: 'flex-basis' doesn't work with 'border-box' model of 'box-sizing'
