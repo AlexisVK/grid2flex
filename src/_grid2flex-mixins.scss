@@ -136,6 +136,7 @@
   $row-vertical-alignment-enabled: map-get($configuration, row-vertical-alignment-enabled);
   $row-horizontal-alignment-enabled: map-get($configuration, row-horizontal-alignment-enabled);
   $column-vertical-alignment-enabled: map-get($configuration, column-vertical-alignment-enabled);
+  $column-ordering-enabled: map-get($configuration, column-ordering-enabled);
   $breakpoints-enabled: map-get($configuration, breakpoints-enabled);
 
   // box sizing
@@ -248,6 +249,22 @@
     }
   }
 
+  @mixin column-ordering($element) {
+    @include check-breakpoint($element) {
+      &--first {
+        order: -1;
+      }
+
+      &--last {
+        order: 1;
+      }
+
+      &--ordered {
+        order: 0;
+      }
+    }
+  }
+
   @if $box-sizing-enabled {
     @include box-sizing-helper();
   }
@@ -265,5 +282,9 @@
 
   @if $column-vertical-alignment-enabled {
     @include column-vertical-alignment(#{$column});
+  }
+
+  @if $column-ordering-enabled {
+    @include column-ordering(#{$column});
   }
 }

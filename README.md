@@ -1,6 +1,6 @@
 # grid2flex
 ## Configurable flexbox grid system
-v. 0.1.2
+v. 0.1.3
 
 grid2flex based on Flexbox Layout.
 
@@ -227,10 +227,15 @@ Helpers will be generated with basic class name + breakpoint name (if breakpoint
 			<td>.col-(bp)--top, .col-(bp)--middle, .col-(bp)--baseline, .col-(bp)--bottom, .col-(bp)--stretch</td>
 			<td>Define vertical alignment for column</td>
 		</tr>
+		<tr>
+			<td>Column ordering</td>
+			<td>.col-(bp)--first, .col-(bp)--last, .col-(bp)--ordered</td>
+			<td>Define order for column</td>
+		</tr>
 	</tbody>
 </table>
 
-Also you can check demo page grid2flex/demo/index.html
+Also you can check <a href="http://alexisvk.github.io/grid2flex/demo/">demo page</a>
 
 
 ## Browser support
