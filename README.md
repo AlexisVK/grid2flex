@@ -227,6 +227,11 @@ Helpers will be generated with basic class name + breakpoint name (if breakpoint
 			<td>.col-(bp)--top, .col-(bp)--middle, .col-(bp)--baseline, .col-(bp)--bottom, .col-(bp)--stretch</td>
 			<td>Define vertical alignment for column</td>
 		</tr>
+		<tr>
+			<td>Column ordering</td>
+			<td>.col-(bp)--first, .col-(bp)--last, .col-(bp)--ordered</td>
+			<td>Define order for column</td>
+		</tr>
 	</tbody>
 </table>
 
