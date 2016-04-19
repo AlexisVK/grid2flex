@@ -53,6 +53,7 @@ Configuration variable:
 	row-vertical-alignment-enabled:              true,
 	row-horizontal-alignment-enabled:            true,
 	column-vertical-alignment-enabled:           true,
+	column-ordering-enabled:                     true,
 	breakpoints-enabled:                         true
 );</code></pre>
 
