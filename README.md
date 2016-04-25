@@ -1,6 +1,6 @@
 # grid2flex
 ## Configurable flexbox grid system
-v. 0.1.6
+v. 0.1.7
 
 grid2flex based on Flexbox Layout.
 
@@ -48,8 +48,9 @@ Configuration variable:
 	container:                                   grid-container,
 	row:                                         row,
 	column:                                      col,
-	box-sizing-enabled:                          true,
 	offsets-enabled:                             true,
+	box-sizing-enabled:                          true,
+	row-wrap-enabled:                            true,
 	row-vertical-alignment-enabled:              true,
 	row-horizontal-alignment-enabled:            true,
 	column-vertical-alignment-enabled:           true,
@@ -74,7 +75,7 @@ Configuration variable:
 		</tr>
 		<tr>
 			<td>container</td>
-			<td>Define class name of main container. Use this container to prevent horizontal scroll on wrapper. Width and height set to 100%</td>
+			<td>Define class name of main container. Use this container to prevent horizontal scroll on wrapper. Width and height set to 100%. Will not compile if set to "false"</td>
 			<td>string, default == grid-container</td>
 		</tr>
 		<tr>
@@ -88,13 +89,18 @@ Configuration variable:
 			<td>string, default == row</td>
 		</tr>
 		<tr>
+			<td>offsets-enabled</td>
+			<td>Offsets for columns</td>
+			<td>boolean, default == true</td>
+		</tr>
+		<tr>
 			<td>box-sizing-enabled</td>
 			<td>Set box-sizing to border box. Need to correct width calculation on columns. Disable if box-sizing reseted in project</td>
 			<td>boolean, default == true</td>
 		</tr>
 		<tr>
-			<td>offsets-enabled</td>
-			<td>Offsets for columns</td>
+			<td>row-wrap-enabled</td>
+			<td>Wrap/ nowrap classes for row (available classes: multi, inline)</td>
 			<td>boolean, default == true</td>
 		</tr>
 		<tr>
@@ -110,6 +116,11 @@ Configuration variable:
 		<tr>
 			<td>column-vertical-alignment-enabled</td>
 			<td>Vertical alignment for current column in row</td>
+			<td>boolean, default == true</td>
+		</tr>
+		<tr>
+			<td>column-ordering-enabled</td>
+			<td>Ordering for columns (available classes: first, last, ordered)</td>
 			<td>boolean, default == true</td>
 		</tr>
 		<tr>

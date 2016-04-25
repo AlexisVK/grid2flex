@@ -3,5 +3,4 @@
 @import "grid2flex-mixins";
 
 // create grid
-@include create-grid();
-@include create-grid-helpers();
+@include grid2flex-init();
