@@ -41,8 +41,8 @@
 
 .col-xs,
 .col {
-  -ms-flex: 1;
-  flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
   width: auto;
   max-width: 100%; }
 
@@ -139,8 +139,8 @@
 
 @media (min-width: 480px) {
   .col-sm {
-    -ms-flex: 1;
-    flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
     width: auto;
     max-width: 100%; }
   .col-sm-1 {
@@ -211,8 +211,8 @@
 
 @media (min-width: 768px) {
   .col-md {
-    -ms-flex: 1;
-    flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
     width: auto;
     max-width: 100%; }
   .col-md-1 {
@@ -283,8 +283,8 @@
 
 @media (min-width: 1024px) {
   .col-lg {
-    -ms-flex: 1;
-    flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
     width: auto;
     max-width: 100%; }
   .col-lg-1 {

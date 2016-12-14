@@ -167,7 +167,7 @@
       } @else {
         // equal column width
         & {
-          flex: 1;
+          flex: 1 1 auto;
           width: auto;
           max-width: 100%;
         }
