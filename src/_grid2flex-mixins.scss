@@ -9,6 +9,7 @@
   $row-wrap-enabled: map-get($configuration, row-wrap-enabled);
   $row-vertical-alignment-enabled: map-get($configuration, row-vertical-alignment-enabled);
   $row-horizontal-alignment-enabled: map-get($configuration, row-horizontal-alignment-enabled);
+  $row-direction-enabled: map-get($configuration, row-direction-enabled);
   $column-vertical-alignment-enabled: map-get($configuration, column-vertical-alignment-enabled);
   $column-ordering-enabled: map-get($configuration, column-ordering-enabled);
 
@@ -40,6 +41,10 @@
 
   @if $row-horizontal-alignment-enabled {
     @include grid2flex-row-horizontal-alignment($row);
+  }
+
+  @if $row-direction-enabled {
+    @include grid2flex-row-direction($row);
   }
 
   @if $column-vertical-alignment-enabled {
@@ -256,6 +261,27 @@
 
     &--around {
       justify-content: space-around;
+    }
+  }
+}
+
+// row direction
+@mixin grid2flex-row-direction($el) {
+  @include grid2flex-check-bp($el) {
+    &--row {
+      flex-direction: row;
+    }
+
+    &--row-reverse {
+      flex-direction: row-reverse;
+    }
+
+    &--column {
+      flex-direction: column;
+    }
+
+    &--column-reverse {
+      flex-direction: column-reverse;
     }
   }
 }
