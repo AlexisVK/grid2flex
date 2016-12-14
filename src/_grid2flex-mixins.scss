@@ -4,12 +4,13 @@
   $container: #{map-get($configuration, container)};
   $row: #{map-get($configuration, row)};
   $column: #{map-get($configuration, column)};
+  $direction-prefix: #{map-get($configuration, direction-prefix)};
   $box-sizing-enabled: map-get($configuration, box-sizing-enabled);
   $offsets-enabled: map-get($configuration, offsets-enabled);
   $row-wrap-enabled: map-get($configuration, row-wrap-enabled);
   $row-vertical-alignment-enabled: map-get($configuration, row-vertical-alignment-enabled);
   $row-horizontal-alignment-enabled: map-get($configuration, row-horizontal-alignment-enabled);
-  $row-direction-enabled: map-get($configuration, row-direction-enabled);
+  $direction-enabled: map-get($configuration, direction-enabled);
   $column-vertical-alignment-enabled: map-get($configuration, column-vertical-alignment-enabled);
   $column-ordering-enabled: map-get($configuration, column-ordering-enabled);
 
@@ -43,8 +44,8 @@
     @include grid2flex-row-horizontal-alignment($row);
   }
 
-  @if $row-direction-enabled {
-    @include grid2flex-row-direction($row);
+  @if $direction-enabled {
+    @include grid2flex-direction($direction-prefix);
   }
 
   @if $column-vertical-alignment-enabled {
@@ -76,8 +77,15 @@
   @if $breakpoints-enabled {
     @each $bp-value, $breakpoint in $breakpoints {
       @include grid2flex-bp-from($bp-value) {
-        .#{$element}-#{$bp-value} {
-          @content;
+        @if ($bp-value == xs) {
+          .#{$element}-#{$bp-value},
+          .#{$element} {
+            @content;
+          }
+        } @else {
+          .#{$element}-#{$bp-value} {
+            @content;
+          }
         }
       }
     }
@@ -104,7 +112,7 @@
   margin-left: ($gutter / -2);
   margin-right: ($gutter / -2);
 
-  > [class*="#{$column}-"] {
+  > [class*="#{$column}"] {
     padding-left: ($gutter / 2);
     padding-right: ($gutter / 2);
   }
@@ -136,7 +144,7 @@
 
 // grid column
 @mixin grid2flex-columns($el) {
-  [class*="#{$el}-"] {
+  [class*="#{$el}"] {
     position: relative;
     min-height: 1px;
     margin-left: 0;
@@ -265,8 +273,12 @@
   }
 }
 
-// row direction
-@mixin grid2flex-row-direction($el) {
+// grid direction
+@mixin grid2flex-direction($el) {
+  [class*="#{$el}"] {
+    display: flex;
+  }
+
   @include grid2flex-check-bp($el) {
     &--row {
       flex-direction: row;
