@@ -6,6 +6,8 @@ grid2flex based on Flexbox Layout.
 
 The Flexbox Layout (Flexible Box) module (currently a W3C Last Call Working Draft) aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex").
 
+<a href="http://alexisvk.github.io/grid2flex/demo/">Demo page</a>
+
 ## Install
 
 ### npm
@@ -280,8 +282,6 @@ Helpers will be generated with basic class name + breakpoint name (if breakpoint
 		</tr>
 	</tbody>
 </table>
-
-Also you can check <a href="http://alexisvk.github.io/grid2flex/demo/">demo page</a>
 
 
 ## Browser support
