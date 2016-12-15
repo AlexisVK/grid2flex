@@ -4,11 +4,13 @@
   $container: #{map-get($configuration, container)};
   $row: #{map-get($configuration, row)};
   $column: #{map-get($configuration, column)};
+  $direction-prefix: #{map-get($configuration, direction-prefix)};
   $box-sizing-enabled: map-get($configuration, box-sizing-enabled);
   $offsets-enabled: map-get($configuration, offsets-enabled);
   $row-wrap-enabled: map-get($configuration, row-wrap-enabled);
   $row-vertical-alignment-enabled: map-get($configuration, row-vertical-alignment-enabled);
   $row-horizontal-alignment-enabled: map-get($configuration, row-horizontal-alignment-enabled);
+  $direction-enabled: map-get($configuration, direction-enabled);
   $column-vertical-alignment-enabled: map-get($configuration, column-vertical-alignment-enabled);
   $column-ordering-enabled: map-get($configuration, column-ordering-enabled);
 
@@ -42,6 +44,10 @@
     @include grid2flex-row-horizontal-alignment($row);
   }
 
+  @if $direction-enabled {
+    @include grid2flex-direction($direction-prefix);
+  }
+
   @if $column-vertical-alignment-enabled {
     @include grid2flex-column-vertical-alignment($column);
   }
@@ -71,8 +77,15 @@
   @if $breakpoints-enabled {
     @each $bp-value, $breakpoint in $breakpoints {
       @include grid2flex-bp-from($bp-value) {
-        .#{$element}-#{$bp-value} {
-          @content;
+        @if ($bp-value == xs) {
+          .#{$element}-#{$bp-value},
+          .#{$element} {
+            @content;
+          }
+        } @else {
+          .#{$element}-#{$bp-value} {
+            @content;
+          }
         }
       }
     }
@@ -99,7 +112,7 @@
   margin-left: ($gutter / -2);
   margin-right: ($gutter / -2);
 
-  > [class*="#{$column}-"] {
+  > [class*="#{$column}"] {
     padding-left: ($gutter / 2);
     padding-right: ($gutter / 2);
   }
@@ -131,7 +144,7 @@
 
 // grid column
 @mixin grid2flex-columns($el) {
-  [class*="#{$el}-"] {
+  [class*="#{$el}"] {
     position: relative;
     min-height: 1px;
     margin-left: 0;
@@ -161,15 +174,24 @@
       }
     }
 
-    // content width column
+    // auto width column
     &-auto {
       flex: 0 1 auto;
       width: auto;
       max-width: 100%;
     }
 
+    // stretch column
+    // used to implement footer at bottom and flex-direction: column | column-reversed to avoid IE11 collapsing bug
+    &-stretch {
+      flex: 1 1 auto; // 3
+      width: auto;
+      max-width: 100%;
+    }
+
     // 1. Workaround for IE11: 'flex-basis' doesn't work with 'border-box' model of 'box-sizing'
     // 2. Fix: when column has 'flex' property 'max-width' doesn't work correctly
+    // 3. Workaround for IE11: collapsing bug fix when used 'flex-direction: column | column-reverse'
   }
 }
 
@@ -256,6 +278,31 @@
 
     &--around {
       justify-content: space-around;
+    }
+  }
+}
+
+// grid direction
+@mixin grid2flex-direction($el) {
+  [class*="#{$el}"] {
+    display: flex;
+  }
+
+  @include grid2flex-check-bp($el) {
+    &--row {
+      flex-direction: row;
+    }
+
+    &--row-reverse {
+      flex-direction: row-reverse;
+    }
+
+    &--column {
+      flex-direction: column;
+    }
+
+    &--column-reverse {
+      flex-direction: column-reverse;
     }
   }
 }
