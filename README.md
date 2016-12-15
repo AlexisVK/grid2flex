@@ -15,7 +15,7 @@ The Flexbox Layout (Flexible Box) module (currently a W3C Last Call Working Draf
 <pre><code>bower install grid2flex --save</code></pre>
 
 ### manual install
-Unpack and copy files from src/ to your project.
+Unpack and copy files from src/ to your project or <a href="https://raw.githubusercontent.com/AlexisVK/grid2flex/master/demo/grid2flex.min.css">download</a> minified version.
 
 
 ## Include grid2flex module
