@@ -1,5 +1,64 @@
+// grid2flex init
+@mixin grid2flex-init($configuration: $configuration, $breakpoints: $breakpoints) {
+  $columns-count: map-get($configuration, columns-count);
+  $container: #{map-get($configuration, container)};
+  $row: #{map-get($configuration, row)};
+  $column: #{map-get($configuration, column)};
+  $direction-prefix: #{map-get($configuration, direction-prefix)};
+  $box-sizing-enabled: map-get($configuration, box-sizing-enabled);
+  $offsets-enabled: map-get($configuration, offsets-enabled);
+  $row-wrap-enabled: map-get($configuration, row-wrap-enabled);
+  $row-vertical-alignment-enabled: map-get($configuration, row-vertical-alignment-enabled);
+  $row-horizontal-alignment-enabled: map-get($configuration, row-horizontal-alignment-enabled);
+  $direction-enabled: map-get($configuration, direction-enabled);
+  $column-vertical-alignment-enabled: map-get($configuration, column-vertical-alignment-enabled);
+  $column-ordering-enabled: map-get($configuration, column-ordering-enabled);
+
+  @if $container and $container != "false" {
+    @include grid2flex-container($container);
+  }
+
+  @include grid2flex-rows($row);
+
+  @include grid2flex-columns($column);
+
+  @include grid2flex-width-calc($column, $columns-count);
+
+  @if $offsets-enabled {
+    @include grid2flex-offset-calc($column, $columns-count);
+  }
+
+  @if $box-sizing-enabled {
+    @include grid2flex-box-sizing-helper();
+  }
+
+  @if $row-wrap-enabled {
+    @include grid2flex-row-wrap($row);
+  }
+
+  @if $row-vertical-alignment-enabled {
+    @include grid2flex-row-vertical-alignment($row);
+  }
+
+  @if $row-horizontal-alignment-enabled {
+    @include grid2flex-row-horizontal-alignment($row);
+  }
+
+  @if $direction-enabled {
+    @include grid2flex-direction($direction-prefix);
+  }
+
+  @if $column-vertical-alignment-enabled {
+    @include grid2flex-column-vertical-alignment($column);
+  }
+
+  @if $column-ordering-enabled {
+    @include grid2flex-column-ordering($column);
+  }
+}
+
 // media queries
-@mixin bp-from($bp-name) {
+@mixin grid2flex-bp-from($bp-name) {
   $bp-value: map-get($breakpoints, $bp-name);
 
   @if ($bp-value > 0) {
@@ -12,14 +71,21 @@
 }
 
 // breakpoints prefixes with media queries
-@mixin check-breakpoint($element, $breakpoints: $breakpoints, $configuration: $configuration) {
+@mixin grid2flex-check-bp($element) {
   $breakpoints-enabled: map-get($configuration, breakpoints-enabled);
 
   @if $breakpoints-enabled {
     @each $bp-value, $breakpoint in $breakpoints {
-      @include bp-from($bp-value) {
-        .#{$element}-#{$bp-value} {
-          @content;
+      @include grid2flex-bp-from($bp-value) {
+        @if ($bp-value == xs) {
+          .#{$element}-#{$bp-value},
+          .#{$element} {
+            @content;
+          }
+        } @else {
+          .#{$element}-#{$bp-value} {
+            @content;
+          }
         }
       }
     }
@@ -30,27 +96,30 @@
   }
 }
 
+// grid container
+@mixin grid2flex-container($el) {
+  .#{$el} {
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 // gutters
-@mixin create-gutter($gutter, $configuration: $configuration) {
+@mixin grid2flex-gutter($gutter) {
   $column: #{map-get($configuration, column)};
 
   margin-left: ($gutter / -2);
   margin-right: ($gutter / -2);
 
-  > [class*="#{$column}-"] {
+  > [class*="#{$column}"] {
     padding-left: ($gutter / 2);
     padding-right: ($gutter / 2);
   }
 }
 
-// grid
-@mixin create-grid($configuration: $configuration, $breakpoints: $breakpoints, $gutters: $gutters) {
-  $columns-count: map-get($configuration, columns-count);
-  $row: #{map-get($configuration, row)};
-  $column: #{map-get($configuration, column)};
-  $offsets-enabled: map-get($configuration, offsets-enabled);
-  $breakpoints-enabled: map-get($configuration, breakpoints-enabled);
-
+// grid row
+@mixin grid2flex-rows($el) {
   // basic flex container (row)
   %row {
     display: flex;
@@ -60,20 +129,22 @@
   // rows and gutters
   @each $gutter-value, $gutter in $gutters {
     @if ($gutter-value != "gutter") {
-      .#{$row}--#{$gutter-value} {
+      .#{$el}--#{$gutter-value} {
         @extend %row;
-        @include create-gutter($gutter);
+        @include grid2flex-gutter($gutter);
       }
     } @else {
-      .#{$row} {
+      .#{$el} {
         @extend %row;
-        @include create-gutter($gutter);
+        @include grid2flex-gutter($gutter);
       }
     }
   }
+}
 
-  // columns
-  [class*="#{$column}-"] {
+// grid column
+@mixin grid2flex-columns($el) {
+  [class*="#{$el}"] {
     position: relative;
     min-height: 1px;
     margin-left: 0;
@@ -81,12 +152,11 @@
     flex-basis: 100%;
     max-width: 100%;
   }
+}
 
-  // 1. Workaround for IE: 'flex-basis' doesn't work with 'border-box' model of 'box-sizing'
-  // 2. Fix: when column has 'flex' property 'max-width' doesn't work correctly
-
-  // width calculation mixin
-  @mixin width-calculation($element) {
+// width calculation mixin
+@mixin grid2flex-width-calc($el, $columns-count) {
+  @include grid2flex-check-bp($el){
     @for $i from 0 through $columns-count {
       @if ($i > 0) {
         &-#{$i} {
@@ -104,187 +174,177 @@
       }
     }
 
-    // content width column
+    // auto width column
     &-auto {
       flex: 0 1 auto;
       width: auto;
       max-width: 100%;
     }
-  }
 
-  // offset calculation mixin
-  @mixin offset-calculation($element) {
+    // stretch column
+    // used to implement footer at bottom and flex-direction: column | column-reversed to avoid IE11 collapsing bug
+    &-stretch {
+      flex: 1 1 auto; // 3
+      width: auto;
+      max-width: 100%;
+    }
+
+    // 1. Workaround for IE11: 'flex-basis' doesn't work with 'border-box' model of 'box-sizing'
+    // 2. Fix: when column has 'flex' property 'max-width' doesn't work correctly
+    // 3. Workaround for IE11: collapsing bug fix when used 'flex-direction: column | column-reverse'
+  }
+}
+
+// offset calculation mixin
+@mixin grid2flex-offset-calc($el, $columns-count) {
+  @include grid2flex-check-bp($el) {
     @for $i from 1 through $columns-count {
       &-offset-#{$i - 1} {
         margin-left: percentage(($i - 1)/$columns-count);
       }
     }
   }
+}
 
-  @include check-breakpoint($column) {
-    @include width-calculation($column);
-    @include offset-calculation($column);
+// box sizing helper
+@mixin grid2flex-box-sizing-helper() {
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:after,
+  *:before {
+    box-sizing: inherit;
   }
 }
 
-// helpers
-@mixin create-grid-helpers($configuration: $configuration, $breakpoints: $breakpoints) {
-  $container: #{map-get($configuration, container)};
-  $row: #{map-get($configuration, row)};
-  $column: #{map-get($configuration, column)};
-  $box-sizing-enabled: map-get($configuration, box-sizing-enabled);
-  $row-vertical-alignment-enabled: map-get($configuration, row-vertical-alignment-enabled);
-  $row-horizontal-alignment-enabled: map-get($configuration, row-horizontal-alignment-enabled);
-  $column-vertical-alignment-enabled: map-get($configuration, column-vertical-alignment-enabled);
-  $column-ordering-enabled: map-get($configuration, column-ordering-enabled);
-  $breakpoints-enabled: map-get($configuration, breakpoints-enabled);
-
-  // box sizing
-  @mixin box-sizing-helper() {
-    html {
-      box-sizing: border-box;
+// flex wrap
+@mixin grid2flex-row-wrap($el) {
+  @include grid2flex-check-bp($el) {
+    &--multi {
+      flex-wrap: wrap;
     }
 
-    *,
-    *:after,
-    *:before {
-      box-sizing: inherit;
+    &--line {
+      flex-wrap: nowrap;
     }
   }
+}
 
-  // grid container
-  @mixin grid-container($element) {
-    .#{$element} {
-      overflow-x: hidden;
-      width: 100%;
-      height: 100%;
+// vertical alignment for rows
+@mixin grid2flex-row-vertical-alignment($el) {
+  @include grid2flex-check-bp($el) {
+    &--top {
+      align-items: flex-start;
+    }
+
+    &--middle {
+      align-items: center;
+    }
+
+    &--baseline {
+      align-items: baseline;
+    }
+
+    &--bottom {
+      align-items: flex-end;
+    }
+
+    &--stretch {
+      align-items: stretch;
     }
   }
+}
 
-  // vertical alignment for rows
-  @mixin row-vertical-alignment($element) {
-    @include check-breakpoint($element) {
-      &--top {
-        align-items: flex-start;
-      }
+// space distribution
+@mixin grid2flex-row-horizontal-alignment($el) {
+  @include grid2flex-check-bp($el) {
+    &--left {
+      justify-content: flex-start;
+    }
 
-      &--middle {
-        align-items: center;
-      }
+    &--center {
+      justify-content: center;
+    }
 
-      &--baseline {
-        align-items: baseline;
-      }
+    &--right {
+      justify-content: flex-end;
+    }
 
-      &--bottom {
-        align-items: flex-end;
-      }
+    &--between {
+      justify-content: space-between;
+    }
 
-      &--stretch {
-        align-items: stretch;
-      }
+    &--around {
+      justify-content: space-around;
     }
   }
+}
 
-  // space distribution
-  @mixin row-horizontal-alignment($element) {
-    @include check-breakpoint($element) {
-      &--left {
-        justify-content: flex-start;
-      }
+// grid direction
+@mixin grid2flex-direction($el) {
+  [class*="#{$el}"] {
+    display: flex;
+  }
 
-      &--center {
-        justify-content: center;
-      }
+  @include grid2flex-check-bp($el) {
+    &--row {
+      flex-direction: row;
+    }
 
-      &--right {
-        justify-content: flex-end;
-      }
+    &--row-reverse {
+      flex-direction: row-reverse;
+    }
 
-      &--between {
-        justify-content: space-between;
-      }
+    &--column {
+      flex-direction: column;
+    }
 
-      &--around {
-        justify-content: space-around;
-      }
+    &--column-reverse {
+      flex-direction: column-reverse;
     }
   }
+}
 
-  // flex wrap
-  @mixin row-wrap($element) {
-    @include check-breakpoint($element) {
-      &--multi {
-        flex-wrap: wrap;
-      }
+// vertical alignment for columns
+@mixin grid2flex-column-vertical-alignment($el) {
+  @include grid2flex-check-bp($el) {
+    &--top {
+      align-self: flex-start;
+    }
 
-      &--line {
-        flex-wrap: nowrap;
-      }
+    &--middle {
+      align-self: center;
+    }
+
+    &--baseline {
+      align-self: baseline;
+    }
+
+    &--bottom {
+      align-self: flex-end;
+    }
+
+    &--stretch {
+      align-self: stretch;
     }
   }
+}
 
-  // align self (for columns)
-  @mixin column-vertical-alignment($element) {
-    @include check-breakpoint($element) {
-      &--top {
-        align-self: flex-start;
-      }
-
-      &--middle {
-        align-self: center;
-      }
-
-      &--baseline {
-        align-self: baseline;
-      }
-
-      &--bottom {
-        align-self: flex-end;
-      }
-
-      &--stretch {
-        align-self: stretch;
-      }
+// ordering for columns
+@mixin grid2flex-column-ordering($el) {
+  @include grid2flex-check-bp($el) {
+    &--first {
+      order: -1;
     }
-  }
 
-  @mixin column-ordering($element) {
-    @include check-breakpoint($element) {
-      &--first {
-        order: -1;
-      }
-
-      &--last {
-        order: 1;
-      }
-
-      &--ordered {
-        order: 0;
-      }
+    &--last {
+      order: 1;
     }
-  }
 
-  @if $box-sizing-enabled {
-    @include box-sizing-helper();
-  }
-
-  @include grid-container(#{$container});
-  @include row-wrap(#{$row});
-
-  @if $row-vertical-alignment-enabled {
-    @include row-vertical-alignment(#{$row});
-  }
-
-  @if $row-horizontal-alignment-enabled {
-    @include row-horizontal-alignment(#{$row});
-  }
-
-  @if $column-vertical-alignment-enabled {
-    @include column-vertical-alignment(#{$column});
-  }
-
-  @if $column-ordering-enabled {
-    @include column-ordering(#{$column});
+    &--ordered {
+      order: 0;
+    }
   }
 }
