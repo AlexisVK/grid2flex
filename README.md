@@ -1,6 +1,6 @@
 # grid2flex
 ## Configurable flexbox grid system
-v. 0.1.7
+v. 0.1.8
 
 grid2flex based on Flexbox Layout.
 
@@ -48,11 +48,13 @@ Configuration variable:
 	container:                                   grid-container,
 	row:                                         row,
 	column:                                      col,
+	direction-prefix:                            dir,
 	offsets-enabled:                             true,
 	box-sizing-enabled:                          true,
 	row-wrap-enabled:                            true,
 	row-vertical-alignment-enabled:              true,
 	row-horizontal-alignment-enabled:            true,
+	direction-enabled:                           true,
 	column-vertical-alignment-enabled:           true,
 	column-ordering-enabled:                     true,
 	breakpoints-enabled:                         true
@@ -89,6 +91,11 @@ Configuration variable:
 			<td>string, default == row</td>
 		</tr>
 		<tr>
+			<td>direction-prefix</td>
+			<td>Direction class name</td>
+			<td>string, default == dir</td>
+		</tr>
+		<tr>
 			<td>offsets-enabled</td>
 			<td>Offsets for columns</td>
 			<td>boolean, default == true</td>
@@ -111,6 +118,11 @@ Configuration variable:
 		<tr>
 			<td>row-horizontal-alignment-enabled</td>
 			<td>Distribution for columns in row</td>
+			<td>boolean, default == true</td>
+		</tr>
+		<tr>
+			<td>direction-enabled</td>
+			<td>Direction for columns in row</td>
 			<td>boolean, default == true</td>
 		</tr>
 		<tr>
@@ -212,6 +224,28 @@ Helpers will be generated with basic class name + breakpoint name (if breakpoint
 	</tbody>
 </table>
 
+### Direction classes:
+Direction class is defined in $configuration variable. Basic class name is <i>.dir</i>.
+Direction classes can be added both to rows and columns.
+<table>
+	<thead>
+		<tr>
+			<th>Helper name</th>
+			<th>Classes examples</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Grid direction</td>
+			<td>.dir-(bp)--row .dir-(bp)--row-reverse .dir-(bp)--column .dir-(bp)--column-reverse</td>
+			<td>Define direction for nested columns</td>
+		</tr>
+	</tbody>
+</table>
+Use prefix "stretch" for IE11 support in column | column-reverse cases.
+
+
 ### Columns classes:
 The main column class is defined in $configuration variable. Basic class name is <i>.col</i>.
 Helpers will be generated with basic class name + breakpoint name (if breakpoints are enabled) + helper name:
@@ -226,7 +260,7 @@ Helpers will be generated with basic class name + breakpoint name (if breakpoint
 	<tbody>
 		<tr>
 			<td>Column sizes</td>
-			<td>.col-(bp)-$i (from 1 to $columns-count), .col-(bp) (column equal width), .col-(bp)-auto (auto width)</td>
+			<td>.col-(bp)-$i (from 1 to $columns-count), .col-(bp) (column equal width), .col-(bp)-auto (auto width), col-(bp)-stretch (used for column | column-reverse direction)</td>
 			<td>Define column size</td>
 		</tr>
 		<tr>
