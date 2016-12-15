@@ -41,8 +41,8 @@
 
 .col-xs,
 .col {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
+  -ms-flex: 1;
+  flex: 1;
   width: auto;
   max-width: 100%; }
 
@@ -137,10 +137,17 @@
   width: auto;
   max-width: 100%; }
 
+.col-xs-stretch,
+.col-stretch {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: auto;
+  max-width: 100%; }
+
 @media (min-width: 480px) {
   .col-sm {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
+    -ms-flex: 1;
+    flex: 1;
     width: auto;
     max-width: 100%; }
   .col-sm-1 {
@@ -207,12 +214,17 @@
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
     width: auto;
+    max-width: 100%; }
+  .col-sm-stretch {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: auto;
     max-width: 100%; } }
 
 @media (min-width: 768px) {
   .col-md {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
+    -ms-flex: 1;
+    flex: 1;
     width: auto;
     max-width: 100%; }
   .col-md-1 {
@@ -279,12 +291,17 @@
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
     width: auto;
+    max-width: 100%; }
+  .col-md-stretch {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: auto;
     max-width: 100%; } }
 
 @media (min-width: 1024px) {
   .col-lg {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
+    -ms-flex: 1;
+    flex: 1;
     width: auto;
     max-width: 100%; }
   .col-lg-1 {
@@ -350,6 +367,11 @@
   .col-lg-auto {
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
+    width: auto;
+    max-width: 100%; }
+  .col-lg-stretch {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
     width: auto;
     max-width: 100%; } }
 

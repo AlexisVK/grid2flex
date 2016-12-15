@@ -11,7 +11,14 @@
 <body>
   <div class="grid-container container">
     <header class="page-header">
-      <h1><a href="https://github.com/AlexisVK/grid2flex">grid2flex</a></h1>
+      <div class="row row--between row--middle">
+        <div class="col-auto">
+          <a href="https://github.com/AlexisVK/grid2flex" class="page-header__logo">grid2flex</a>
+        </div>
+        <div class="col-auto">
+          <strong class="page-header__desc">Configurable flexbox grid system</strong>
+        </div>
+      </div>
     </header>
     <section class="example">
       <h3>Columns with auto width</h3>
@@ -176,50 +183,56 @@
       <h3>Direction for rows</h3>
       <p>Use prefixes "row", "row-reverse", "column", "column-reverse"</p>
       <p>By default all rows has "row" direction. you don't need to use "row" prefix.</p>
+      <p>
+        <em>
+          <strong>Note:</strong> to avoid collapsing bug in IE11 for column and column-reverse direction "stretch" prefix should be used for columns (col-stretch | col-xs-stretch). <br>
+          If you don't need to support IE11 no need to use "stretch" prefix.
+        </em>
+      </p>
       <div class="row">
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 1</div>
         </div>
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 2</div>
         </div>
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 3</div>
         </div>
       </div>
       <p>Reversed row</p>
       <div class="row dir--row-reverse">
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 1</div>
         </div>
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 2</div>
         </div>
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 3</div>
         </div>
       </div>
       <p>Column direction</p>
       <div class="row dir--column">
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 1</div>
         </div>
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 2</div>
         </div>
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 3</div>
         </div>
       </div>
       <p>Reversed column direction</p>
       <div class="row dir--column-reverse">
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 1</div>
         </div>
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 2</div>
         </div>
-        <div class="col">
+        <div class="col-stretch">
           <div class="inner">col 3</div>
         </div>
       </div>
@@ -321,8 +334,8 @@
 
       <h3>Footer at bottom using grid2flex</h3>
       <div class="row">
-        <div class="col-md-8 dir--column">
-          <div class="col">
+        <div class="col-md-8 row dir--column">
+          <div class="col-stretch">
             <div class="inner"><p>Header</p></div>
           </div>
           <div class="col-auto">
@@ -330,7 +343,7 @@
           </div>
         </div>
         <div class="col-md-4 dir--column">
-          <div class="col">
+          <div class="col-stretch">
             <div class="inner">
               <p>Header</p>
               <p>Header description</p>
@@ -344,21 +357,6 @@
         </div>
       </div>
     </section>
-    <!-- grid columns -->
-    <div class="grid-example row--gutter-none">
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="col"></div>
-    </div>
   </div>
 </body>
 </html>

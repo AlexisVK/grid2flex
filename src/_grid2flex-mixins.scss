@@ -167,22 +167,31 @@
       } @else {
         // equal column width
         & {
-          flex: 1 1 auto;
+          flex: 1;
           width: auto;
           max-width: 100%;
         }
       }
     }
 
-    // content width column
+    // auto width column
     &-auto {
       flex: 0 1 auto;
       width: auto;
       max-width: 100%;
     }
 
+    // stretch column
+    // used to implement footer at bottom and flex-direction: column | column-reversed to avoid IE11 collapsing bug
+    &-stretch {
+      flex: 1 1 auto; // 3
+      width: auto;
+      max-width: 100%;
+    }
+
     // 1. Workaround for IE11: 'flex-basis' doesn't work with 'border-box' model of 'box-sizing'
     // 2. Fix: when column has 'flex' property 'max-width' doesn't work correctly
+    // 3. Workaround for IE11: collapsing bug fix when used 'flex-direction: column | column-reverse'
   }
 }
 
