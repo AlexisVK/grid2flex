@@ -144,7 +144,8 @@
 
 // grid column
 @mixin grid2flex-columns($el) {
-  [class*="#{$el}"] {
+  .#{$el},
+  [class*="#{$el}-"] {
     position: relative;
     min-height: 1px;
     margin-left: 0;
