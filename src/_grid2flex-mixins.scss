@@ -285,7 +285,7 @@
 
 // grid direction
 @mixin grid2flex-direction($el) {
-  [class*="#{$el}"] {
+  [class*="#{$el}-"] {
     display: flex;
   }
 

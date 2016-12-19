@@ -696,7 +696,7 @@ html {
     -ms-flex-pack: distribute;
     justify-content: space-around; } }
 
-[class*="dir"] {
+[class*="dir-"] {
   display: -ms-flexbox;
   display: flex; }
 
