@@ -1,10 +1,12 @@
 # grid2flex
 ## Configurable flexbox grid system
-v. 0.1.8
+v. 0.2.0
 
 grid2flex based on Flexbox Layout.
 
 The Flexbox Layout (Flexible Box) module (currently a W3C Last Call Working Draft) aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex").
+
+<a href="http://alexisvk.github.io/grid2flex/demo/">Demo page</a>
 
 ## Install
 
@@ -15,7 +17,7 @@ The Flexbox Layout (Flexible Box) module (currently a W3C Last Call Working Draf
 <pre><code>bower install grid2flex --save</code></pre>
 
 ### manual install
-Unpack and copy files from src/ to your project.
+Unpack and copy files from src/ to your project or <a href="https://raw.githubusercontent.com/AlexisVK/grid2flex/master/demo/grid2flex.min.css">download</a> minified version.
 
 
 ## Include grid2flex module
@@ -280,8 +282,6 @@ Helpers will be generated with basic class name + breakpoint name (if breakpoint
 		</tr>
 	</tbody>
 </table>
-
-Also you can check <a href="http://alexisvk.github.io/grid2flex/demo/">demo page</a>
 
 
 ## Browser support

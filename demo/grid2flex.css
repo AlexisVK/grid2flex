@@ -30,7 +30,8 @@
     padding-left: 20px;
     padding-right: 20px; }
 
-[class*="col"] {
+.col,
+[class*="col-"] {
   position: relative;
   min-height: 1px;
   margin-left: 0;
@@ -695,7 +696,7 @@ html {
     -ms-flex-pack: distribute;
     justify-content: space-around; } }
 
-[class*="dir"] {
+[class*="dir-"] {
   display: -ms-flexbox;
   display: flex; }
 
