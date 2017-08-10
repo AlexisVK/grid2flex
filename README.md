@@ -1,7 +1,6 @@
 # grid2flex
 > Configurable flexbox grid system
 
-[![npm][npm-image]][npm-url] [![license][license-image]][license-url]
 
 grid2flex based on Flexbox Layout.
 
@@ -12,7 +11,9 @@ The Flexbox Layout (Flexible Box) module (currently a W3C Last Call Working Draf
 ## Install
 
 ### npm
-```npm install grid2flex --save```
+```sh
+npm install grid2flex --save
+```
 
 ### manual install
 Unpack and copy files from src/ to your project or <a href="https://raw.githubusercontent.com/AlexisVK/grid2flex/master/demo/grid2flex.min.css">download</a> minified version.
