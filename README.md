@@ -131,7 +131,7 @@ Direction classes can be added both to rows and columns.
 | --- | --- | --- |
 | Grid direction | .dir-(bp)--row .dir-(bp)--row-reverse .dir-(bp)--column .dir-(bp)--column-reverse | Define direction for nested columns |
 
-Use prefix "stretch" for IE11 support in column `|` column-reverse cases.
+Use prefix "stretch" for IE11 support in column \| column-reverse cases.
 
 
 ### Columns classes:
@@ -140,7 +140,7 @@ Helpers will be generated with basic class name + breakpoint name (if breakpoint
 
 | Helper name | Classes examples | Description |
 | --- | --- | --- |
-| Column sizes | .col-(bp)-$i (from 1 to $columns-count), .col-(bp) (column equal width), .col-(bp)-auto (auto width), col-(bp)-stretch (used for column `|` column-reverse direction) | Define column size |
+| Column sizes | .col-(bp)-$i (from 1 to $columns-count), .col-(bp) (column equal width), .col-(bp)-auto (auto width), col-(bp)-stretch (used for column \| column-reverse direction) | Define column size |
 | Column offsets | .col-(bp)-offset-$i (from 0 to $columns-count - 1) | Define offset for column |
 | Vertical alignment | .col-(bp)--top, .col-(bp)--middle, .col-(bp)--baseline, .col-(bp)--bottom, .col-(bp)--stretch | Define vertical alignment for column |
 | Column ordering | .col-(bp)--first, .col-(bp)--last, .col-(bp)--ordered | Define order for column |
