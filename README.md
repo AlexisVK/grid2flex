@@ -1,4 +1,7 @@
 # grid2flex
+<a href="https://github.com/AlexisVK/grid2flex"><img
+  src="http://alexisvk.github.io/grid2flex/img/grid2flex.png" alt="grid2flex Logo"
+  width="80" height="80" align="right"></a>
 > Configurable flexbox grid system
 
 [![npm][npm-image]][npm-url]
