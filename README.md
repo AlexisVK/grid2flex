@@ -1,12 +1,23 @@
 # grid2flex
 > Configurable flexbox grid system
 
+[![npm][npm-image]][npm-url]
 
 grid2flex based on Flexbox Layout.
 
 The Flexbox Layout (Flexible Box) module (currently a W3C Last Call Working Draft) aims at providing a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown and/or dynamic (thus the word "flex").
 
 <a href="http://alexisvk.github.io/grid2flex/demo/">Demo page</a>
+
+
+## What does it do?
+
+* Includes grid system familiar to bootstrap
+* Possibility to change class names for rows, columns etc.
+* Gutters setup available
+* Vertical and horizontal alignment for columns
+* Equal height multi-row columns
+* Equal width single-row columns
 
 ## Install
 
@@ -38,7 +49,7 @@ You can setup grid2flex by adding custom variables file. Use sass @import direct
 ```
 
 ## Variables
-Original grid2flex-variables file include next variables:
+grid2flex package includes variables setup, wich can be customized.
 
 Configuration variable:
 
@@ -61,22 +72,22 @@ $configuration: (
 );
 ```
 
-| Variable name | Description | Type |
-| --- | --- | --- |
-| columns-count | Used to define how much columns should be generated | Integer |
-| container | Define class name of main container. Use this container to prevent horizontal scroll on wrapper. Width and height set to 100%. Will not compile if set to "false" | string, default == grid-container |
-| row | Row container class name. Wrapper for columns | string, default == row |
-| column | Column class name | string, default == row |
-| direction-prefix | Direction class name | string, default == dir |
-| offsets-enabled | Offsets for columns | boolean, default == true |
-| box-sizing-enabled | Set box-sizing to border box. Need to correct width calculation on columns. Disable if box-sizing reseted in project | boolean, default == true |
-| row-wrap-enabled | Wrap/ nowrap classes for row (available classes: multi, inline) | boolean, default == true |
-| row-vertical-alignment-enabled | Vertical alignment for all columns in row | boolean, default == true |
-| row-horizontal-alignment-enabled | Distribution for columns in row | boolean, default == true |
-| direction-enabled | Direction for columns in row | boolean, default == true |
-| column-vertical-alignment-enabled | Vertical alignment for current column in row | boolean, default == true |
-| column-ordering-enabled | Ordering for columns (available classes: first, last, ordered) | boolean, default == true |
-| breakpoints-enabled | Option to generate class prefixes for media queries | boolean, default == true |
+| Variable name | Description | Type | Default value |
+| --- | --- | --- | --- |
+| columns-count | Used to define how much columns should be generated | `Number` | 12 |
+| container | Define class name of main container. Use this container to prevent horizontal scroll on wrapper. Width and height set to 100%. Will not compile if set to "false" | `String` | `grid-container` |
+| row | Row container class name. Wrapper for columns | `String` | `row` |
+| column | Column class name | `String` | `col` |
+| direction-prefix | Direction class name | `String` | `dir` |
+| offsets-enabled | Offsets for columns | `Boolean` | `true` |
+| box-sizing-enabled | Set box-sizing to border box. Need to correct width calculation on columns. Disable if box-sizing reseted in project | `Boolean` | `true` |
+| row-wrap-enabled | Wrap/ nowrap classes for row (available classes: multi, inline) | `Boolean` | `true` |
+| row-vertical-alignment-enabled | Vertical alignment for all columns in row | `Boolean` | `true` |
+| row-horizontal-alignment-enabled | Distribution for columns in row | `Boolean` | `true` |
+| direction-enabled | Direction for columns in row | `Boolean` | `true` |
+| column-vertical-alignment-enabled | Vertical alignment for current column in row | `Boolean` | `true` |
+| column-ordering-enabled | Ordering for columns (available classes: first, last, ordered) | `Boolean` | `true` |
+| breakpoints-enabled | Option to generate class prefixes for media queries | `Boolean` | `true` |
 
 Gutters variable:
 
@@ -149,3 +160,7 @@ Helpers will be generated with basic class name + breakpoint name (if breakpoint
 
 ## Browser support
 Visit <a href="http://caniuse.com/#feat=flexbox">Can I use</a> to check browser support.
+
+[npm-image]: https://img.shields.io/npm/v/grid2flex.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/grid2flex
+
