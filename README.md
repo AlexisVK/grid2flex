@@ -4,7 +4,7 @@
   width="80" height="80" align="right"></a>
 > Configurable flexbox grid system
 
-[![npm][npm-image]][npm-url]
+[![npm][npm-image]][npm-url][![license][license-image]][license-url]
 
 grid2flex based on Flexbox Layout.
 
@@ -164,6 +164,8 @@ Helpers will be generated with basic class name + breakpoint name (if breakpoint
 ## Browser support
 Visit <a href="http://caniuse.com/#feat=flexbox">Can I use</a> to check browser support.
 
+[license-image]: https://img.shields.io/npm/l/grid2flex.svg?style=flat-square
+[license-url]: LICENSE.md
 [npm-image]: https://img.shields.io/npm/v/grid2flex.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/grid2flex
 
